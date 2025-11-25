@@ -144,15 +144,10 @@ jobs:
           echo "$NOTES" > release_notes.txt
 
       - name: Criar Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: ${{ steps.release_notes.outputs.version }}
-          body_path: release_notes.txt
-          files: |
-            release-assets/sidelook-linux
-            release-assets/sidelook-macos
-            release-assets/sidelook-windows.exe
-          draft: false
-          prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ steps.release_notes.outputs.version }} \
+            --title "${{ steps.release_notes.outputs.version }}" \
+            --notes-file release_notes.txt \
+            release-assets/*
