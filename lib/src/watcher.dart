@@ -95,11 +95,13 @@ class ImageWatcher {
   }
 
   void _handleEvent(WatchEvent event) {
-    // Interessados apenas em criação e modificação
-    if (event.type == ChangeType.REMOVE) return;
-
     final path = event.path;
     if (!isImageFile(path)) return;
+
+    if (event.type == ChangeType.REMOVE) {
+      _handleRemove(path);
+      return;
+    }
 
     final file = File(path);
 
@@ -109,6 +111,27 @@ class ImageWatcher {
     // Atualizar imagem atual e notificar
     _currentImage = file;
     _imageController.add(file);
+  }
+
+  void _handleRemove(String removedPath) {
+    // Se a imagem removida não é a atual, ignorar
+    if (_currentImage?.path != removedPath) return;
+
+    // A imagem atual foi removida, buscar a próxima mais recente
+    _findNextMostRecent();
+  }
+
+  void _findNextMostRecent() {
+    // Buscar de forma assíncrona sem bloquear
+    scanExisting().then((result) {
+      if (result.mostRecent != null) {
+        // Encontrou uma nova imagem, notificar
+        _imageController.add(result.mostRecent!);
+      } else {
+        // Não há mais imagens
+        _currentImage = null;
+      }
+    });
   }
 
   /// Para o monitoramento e libera recursos

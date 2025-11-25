@@ -99,5 +99,109 @@ void main() {
 
       await watcher.stop();
     }, timeout: Timeout(Duration(seconds: 10)));
+
+    test('detecta remoção da imagem atual e atualiza para próxima', () async {
+      final tempDir = await Directory.systemTemp.createTemp('sidelook_test_');
+      addTearDown(() => tempDir.delete(recursive: true));
+
+      // Criar duas imagens com delay para garantir ordem de modificação
+      final img1 = File(p.join(tempDir.path, 'primeira.jpg'));
+      await img1.writeAsBytes([0xFF, 0xD8, 0xFF, 0xE0]);
+      await Future<void>.delayed(Duration(seconds: 1));
+
+      final img2 = File(p.join(tempDir.path, 'segunda.jpg'));
+      await img2.writeAsBytes([0xFF, 0xD8, 0xFF, 0xE0]);
+
+      final watcher = ImageWatcher(tempDir.path);
+      final result = await watcher.scanExisting();
+
+      // img2 deve ser a mais recente
+      expect(result.mostRecent?.path, equals(img2.path));
+      expect(watcher.currentImage?.path, equals(img2.path));
+
+      await watcher.start();
+
+      // Configurar listener para capturar a próxima imagem
+      final completer = Completer<File>();
+      unawaited(watcher.onNewImage.first.then(completer.complete));
+
+      // Dar tempo para watcher inicializar
+      await Future<void>.delayed(Duration(milliseconds: 100));
+
+      // Remover a imagem atual (img2)
+      await img2.delete();
+
+      // Aguardar que o watcher detecte e notifique a próxima imagem
+      final nextImage = await completer.future.timeout(
+        Duration(seconds: 5),
+        onTimeout: () => throw TimeoutException('Próxima imagem não detectada'),
+      );
+
+      // Deve notificar img1 como a nova imagem mais recente
+      expect(nextImage.path, equals(img1.path));
+      expect(watcher.currentImage?.path, equals(img1.path));
+
+      await watcher.stop();
+    }, timeout: Timeout(Duration(seconds: 10)));
+
+    test('detecta remoção quando não há mais imagens', () async {
+      final tempDir = await Directory.systemTemp.createTemp('sidelook_test_');
+      addTearDown(() => tempDir.delete(recursive: true));
+
+      // Criar apenas uma imagem
+      final img = File(p.join(tempDir.path, 'unica.jpg'));
+      await img.writeAsBytes([0xFF, 0xD8, 0xFF, 0xE0]);
+
+      final watcher = ImageWatcher(tempDir.path);
+      await watcher.scanExisting();
+      expect(watcher.currentImage?.path, equals(img.path));
+
+      await watcher.start();
+      await Future<void>.delayed(Duration(milliseconds: 100));
+
+      // Remover a única imagem
+      await img.delete();
+
+      // Aguardar processamento
+      await Future<void>.delayed(Duration(seconds: 2));
+
+      // currentImage deve ser null
+      expect(watcher.currentImage, isNull);
+
+      await watcher.stop();
+    }, timeout: Timeout(Duration(seconds: 10)));
+
+    test('ignora remoção de imagem que não é a atual', () async {
+      final tempDir = await Directory.systemTemp.createTemp('sidelook_test_');
+      addTearDown(() => tempDir.delete(recursive: true));
+
+      // Criar duas imagens
+      final img1 = File(p.join(tempDir.path, 'primeira.jpg'));
+      await img1.writeAsBytes([0xFF, 0xD8, 0xFF, 0xE0]);
+      await Future<void>.delayed(Duration(seconds: 1));
+
+      final img2 = File(p.join(tempDir.path, 'segunda.jpg'));
+      await img2.writeAsBytes([0xFF, 0xD8, 0xFF, 0xE0]);
+
+      final watcher = ImageWatcher(tempDir.path);
+      await watcher.scanExisting();
+
+      // img2 é a atual
+      expect(watcher.currentImage?.path, equals(img2.path));
+
+      await watcher.start();
+      await Future<void>.delayed(Duration(milliseconds: 100));
+
+      // Remover img1 (não é a atual)
+      await img1.delete();
+
+      // Aguardar
+      await Future<void>.delayed(Duration(seconds: 1));
+
+      // currentImage ainda deve ser img2
+      expect(watcher.currentImage?.path, equals(img2.path));
+
+      await watcher.stop();
+    }, timeout: Timeout(Duration(seconds: 10)));
   });
 }
