@@ -143,13 +143,16 @@ jobs:
           # Salvar em arquivo para multiline
           echo "$NOTES" > release_notes.txt
 
-      - name: Debug Token Permissions
-        run: |
-          curl -I -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
-
       - name: Criar Release
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
         with:
-          artifacts: "release-assets/*"
-          bodyFile: "release_notes.txt"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ steps.release_notes.outputs.version }}
+          body_path: release_notes.txt
+          files: |
+            release-assets/sidelook-linux
+            release-assets/sidelook-macos
+            release-assets/sidelook-windows.exe
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
