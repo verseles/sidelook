@@ -143,11 +143,6 @@ jobs:
           # Salvar em arquivo para multiline
           echo "$NOTES" > release_notes.txt
 
-      - name: Debug Token Permissions
-        run: |
-          echo "Checking token permissions..."
-          curl -v -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user 2>&1 | grep "x-oauth-scopes" || true
-
       - name: Criar Release
         uses: softprops/action-gh-release@v1
         with:
@@ -159,5 +154,4 @@ jobs:
             release-assets/sidelook-windows.exe
           draft: false
           prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
