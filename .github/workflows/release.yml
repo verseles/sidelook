@@ -143,11 +143,13 @@ jobs:
           # Salvar em arquivo para multiline
           echo "$NOTES" > release_notes.txt
 
-      - name: Criar Release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Debug Token Permissions
         run: |
-          gh release create ${{ steps.release_notes.outputs.version }} \
-            --title "${{ steps.release_notes.outputs.version }}" \
-            --notes-file release_notes.txt \
-            release-assets/*
+          curl -I -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
+
+      - name: Criar Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "release-assets/*"
+          bodyFile: "release_notes.txt"
+          token: ${{ secrets.GITHUB_TOKEN }}
