@@ -1,113 +1,122 @@
-{"protocolVersion":"0.1.1","runnerVersion":"1.28.0","pid":1892941,"type":"start","time":0}
+{"protocolVersion":"0.1.1","runnerVersion":"1.28.0","pid":1916666,"type":"start","time":0}
 {"suite":{"id":0,"platform":"vm","path":"test/version_compare_test.dart"},"type":"suite","time":0}
-{"test":{"id":1,"name":"loading test/version_compare_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":0}
-{"suite":{"id":2,"platform":"vm","path":"test/cli_test.dart"},"type":"suite","time":4}
-{"test":{"id":3,"name":"loading test/cli_test.dart","suiteID":2,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":4}
+{"test":{"id":1,"name":"loading test/version_compare_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":1}
+{"suite":{"id":2,"platform":"vm","path":"test/cli_test.dart"},"type":"suite","time":5}
+{"test":{"id":3,"name":"loading test/cli_test.dart","suiteID":2,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":5}
 {"suite":{"id":4,"platform":"vm","path":"test/watcher_test.dart"},"type":"suite","time":5}
 {"test":{"id":5,"name":"loading test/watcher_test.dart","suiteID":4,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":5}
-{"count":3,"time":5,"type":"allSuites"}
-{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":346}
-{"group":{"id":6,"suiteID":2,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":null,"column":null,"url":null},"type":"group","time":349}
-{"group":{"id":7,"suiteID":2,"parentID":6,"name":"CliParser","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":11,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"group","time":350}
-{"test":{"id":8,"name":"CliParser parse sem argumentos usa diretório atual","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":350}
-{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":362}
-{"group":{"id":9,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":null,"column":null,"url":null},"type":"group","time":362}
-{"group":{"id":10,"suiteID":0,"parentID":9,"name":"VersionCompare","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":5,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":362}
-{"group":{"id":11,"suiteID":0,"parentID":10,"name":"VersionCompare normalize","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":6,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":362}
-{"test":{"id":12,"name":"VersionCompare normalize remove prefixo v","suiteID":0,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":7,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":362}
-{"testID":5,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":373}
-{"group":{"id":13,"suiteID":4,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":17,"line":null,"column":null,"url":null},"type":"group","time":373}
-{"group":{"id":14,"suiteID":4,"parentID":13,"name":"isImageFile","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":11,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"group","time":373}
-{"test":{"id":15,"name":"isImageFile aceita jpg","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":373}
-{"testID":8,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":381}
-{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":382}
-{"test":{"id":16,"name":"CliParser parse com diretório","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":382}
-{"test":{"id":17,"name":"VersionCompare normalize remove sufixo -beta","suiteID":0,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":11,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":383}
-{"testID":17,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":385}
-{"testID":16,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":386}
-{"test":{"id":18,"name":"VersionCompare normalize remove sufixo +build","suiteID":0,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":15,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":387}
-{"test":{"id":19,"name":"CliParser parse --port com valor válido","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":26,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":388}
-{"testID":18,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":389}
-{"test":{"id":20,"name":"VersionCompare normalize mantém versão limpa","suiteID":0,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":19,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":389}
-{"testID":20,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":390}
-{"group":{"id":21,"suiteID":0,"parentID":10,"name":"VersionCompare parse","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":24,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":391}
-{"test":{"id":22,"name":"VersionCompare parse versão completa","suiteID":0,"groupIDs":[9,10,21],"metadata":{"skip":false,"skipReason":null},"line":25,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":391}
-{"testID":22,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":395}
-{"testID":19,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":395}
-{"test":{"id":23,"name":"VersionCompare parse versão sem patch","suiteID":0,"groupIDs":[9,10,21],"metadata":{"skip":false,"skipReason":null},"line":29,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":395}
-{"test":{"id":24,"name":"CliParser parse -p abreviado","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":31,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":396}
-{"testID":15,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":396}
-{"testID":23,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":396}
-{"test":{"id":25,"name":"isImageFile aceita jpeg","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":13,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":397}
-{"test":{"id":26,"name":"VersionCompare parse versão só major","suiteID":0,"groupIDs":[9,10,21],"metadata":{"skip":false,"skipReason":null},"line":33,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":397}
-{"testID":24,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":398}
-{"test":{"id":27,"name":"CliParser parse --port inválido lança exceção","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":36,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":398}
-{"testID":26,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":399}
-{"testID":25,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":399}
-{"group":{"id":28,"suiteID":0,"parentID":10,"name":"VersionCompare compare","metadata":{"skip":false,"skipReason":null},"testCount":6,"line":38,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":399}
-{"test":{"id":29,"name":"VersionCompare compare versão igual","suiteID":0,"groupIDs":[9,10,28],"metadata":{"skip":false,"skipReason":null},"line":39,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":400}
-{"test":{"id":30,"name":"isImageFile aceita png","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":14,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":400}
-{"testID":29,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":401}
-{"testID":30,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":402}
-{"test":{"id":31,"name":"VersionCompare compare local mais antiga (major)","suiteID":0,"groupIDs":[9,10,28],"metadata":{"skip":false,"skipReason":null},"line":46,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":402}
-{"test":{"id":32,"name":"isImageFile aceita gif","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":16,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":403}
-{"testID":27,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":404}
-{"testID":31,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":405}
-{"test":{"id":33,"name":"CliParser parse --port fora do range lança exceção","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":43,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":405}
-{"testID":32,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":406}
-{"test":{"id":34,"name":"VersionCompare compare local mais antiga (minor)","suiteID":0,"groupIDs":[9,10,28],"metadata":{"skip":false,"skipReason":null},"line":53,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":406}
-{"test":{"id":35,"name":"isImageFile aceita webp","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":17,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":407}
-{"testID":33,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":408}
-{"testID":34,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":408}
-{"test":{"id":36,"name":"CliParser parse --update","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":50,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":409}
-{"testID":35,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":409}
-{"test":{"id":37,"name":"VersionCompare compare local mais antiga (patch)","suiteID":0,"groupIDs":[9,10,28],"metadata":{"skip":false,"skipReason":null},"line":60,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":410}
-{"test":{"id":38,"name":"isImageFile aceita svg","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":18,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":410}
-{"testID":36,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":411}
-{"testID":37,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":411}
-{"test":{"id":39,"name":"CliParser parse -u abreviado","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":55,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":412}
-{"testID":38,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":412}
-{"test":{"id":40,"name":"VersionCompare compare local mais recente","suiteID":0,"groupIDs":[9,10,28],"metadata":{"skip":false,"skipReason":null},"line":67,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":413}
-{"test":{"id":41,"name":"isImageFile aceita bmp","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":19,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":413}
-{"testID":39,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":414}
-{"testID":40,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":414}
-{"test":{"id":42,"name":"CliParser parse --version","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":60,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":415}
-{"test":{"id":43,"name":"VersionCompare compare ignora prefixo v","suiteID":0,"groupIDs":[9,10,28],"metadata":{"skip":false,"skipReason":null},"line":74,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":415}
-{"testID":41,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":416}
-{"testID":42,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":416}
-{"test":{"id":44,"name":"isImageFile aceita tiff","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":20,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":417}
-{"test":{"id":45,"name":"CliParser parse --help","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":65,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":417}
-{"testID":43,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":418}
-{"testID":44,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":418}
-{"group":{"id":46,"suiteID":0,"parentID":10,"name":"VersionCompare hasUpdate","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":82,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":419}
-{"test":{"id":47,"name":"VersionCompare hasUpdate retorna true quando há atualização","suiteID":0,"groupIDs":[9,10,46],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":419}
-{"test":{"id":48,"name":"isImageFile aceita tif","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":420}
-{"testID":45,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":420}
-{"test":{"id":49,"name":"CliParser parse combinação de argumentos","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":70,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":421}
-{"testID":47,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":421}
-{"testID":48,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":422}
-{"test":{"id":50,"name":"VersionCompare hasUpdate retorna false quando versões iguais","suiteID":0,"groupIDs":[9,10,46],"metadata":{"skip":false,"skipReason":null},"line":87,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":422}
-{"test":{"id":51,"name":"isImageFile rejeita txt","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":23,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":423}
-{"testID":49,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":423}
-{"test":{"id":52,"name":"CliParser usage contém informações essenciais","suiteID":2,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":76,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":424}
-{"testID":50,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":424}
-{"testID":51,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":424}
-{"test":{"id":53,"name":"VersionCompare hasUpdate retorna false quando local é mais recente","suiteID":0,"groupIDs":[9,10,46],"metadata":{"skip":false,"skipReason":null},"line":91,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":425}
-{"test":{"id":54,"name":"isImageFile rejeita pdf","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":24,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":425}
-{"testID":53,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":426}
-{"testID":54,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":426}
-{"test":{"id":55,"name":"isImageFile rejeita sem extensão","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":25,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":432}
-{"testID":52,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":433}
-{"testID":55,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":434}
-{"group":{"id":56,"suiteID":4,"parentID":13,"name":"ImageWatcher","metadata":{"skip":false,"skipReason":null},"testCount":5,"line":28,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"group","time":434}
-{"test":{"id":57,"name":"ImageWatcher validate retorna true para diretório válido","suiteID":4,"groupIDs":[13,56],"metadata":{"skip":false,"skipReason":null},"line":39,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":435}
-{"testID":57,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":447}
-{"test":{"id":58,"name":"ImageWatcher validate retorna false para diretório inexistente","suiteID":4,"groupIDs":[13,56],"metadata":{"skip":false,"skipReason":null},"line":44,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":447}
-{"testID":58,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":449}
-{"test":{"id":59,"name":"ImageWatcher scanExisting encontra imagem mais recente","suiteID":4,"groupIDs":[13,56],"metadata":{"skip":false,"skipReason":null},"line":49,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":449}
-{"testID":59,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1470}
-{"test":{"id":60,"name":"ImageWatcher scanExisting retorna null se não há imagens","suiteID":4,"groupIDs":[13,56],"metadata":{"skip":false,"skipReason":null},"line":65,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":1470}
-{"testID":60,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1472}
-{"test":{"id":61,"name":"ImageWatcher detecta nova imagem","suiteID":4,"groupIDs":[13,56],"metadata":{"skip":false,"skipReason":null},"line":77,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":1473}
-{"testID":61,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1590}
-{"success":true,"type":"done","time":1594}
+{"suite":{"id":6,"platform":"vm","path":"test/server_test.dart"},"type":"suite","time":7}
+{"test":{"id":7,"name":"loading test/server_test.dart","suiteID":6,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":7}
+{"count":4,"time":7,"type":"allSuites"}
+{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":482}
+{"group":{"id":8,"suiteID":2,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":null,"column":null,"url":null},"type":"group","time":492}
+{"group":{"id":9,"suiteID":2,"parentID":8,"name":"CliParser","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":11,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"group","time":494}
+{"test":{"id":10,"name":"CliParser parse sem argumentos usa diretório atual","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":494}
+{"testID":7,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":499}
+{"group":{"id":11,"suiteID":6,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":null,"column":null,"url":null},"type":"group","time":499}
+{"group":{"id":12,"suiteID":6,"parentID":11,"name":"ImageServer","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":7,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/server_test.dart"},"type":"group","time":499}
+{"test":{"id":13,"name":"ImageServer start e stop sem erro","suiteID":6,"groupIDs":[11,12],"metadata":{"skip":false,"skipReason":null},"line":23,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/server_test.dart"},"type":"testStart","time":499}
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":515}
+{"group":{"id":14,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":null,"column":null,"url":null},"type":"group","time":515}
+{"group":{"id":15,"suiteID":0,"parentID":14,"name":"VersionCompare","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":5,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":515}
+{"group":{"id":16,"suiteID":0,"parentID":15,"name":"VersionCompare normalize","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":6,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":515}
+{"test":{"id":17,"name":"VersionCompare normalize remove prefixo v","suiteID":0,"groupIDs":[14,15,16],"metadata":{"skip":false,"skipReason":null},"line":7,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":515}
+{"testID":10,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":535}
+{"test":{"id":18,"name":"CliParser parse com diretório","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":537}
+{"testID":5,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":549}
+{"group":{"id":19,"suiteID":4,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":17,"line":null,"column":null,"url":null},"type":"group","time":549}
+{"group":{"id":20,"suiteID":4,"parentID":19,"name":"isImageFile","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":11,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"group","time":550}
+{"test":{"id":21,"name":"isImageFile aceita jpg","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":550}
+{"testID":18,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":551}
+{"testID":17,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":552}
+{"test":{"id":22,"name":"CliParser parse --port com valor válido","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":26,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":553}
+{"test":{"id":23,"name":"VersionCompare normalize remove sufixo -beta","suiteID":0,"groupIDs":[14,15,16],"metadata":{"skip":false,"skipReason":null},"line":11,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":553}
+{"testID":23,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":555}
+{"test":{"id":24,"name":"VersionCompare normalize remove sufixo +build","suiteID":0,"groupIDs":[14,15,16],"metadata":{"skip":false,"skipReason":null},"line":15,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":556}
+{"testID":22,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":557}
+{"testID":24,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":558}
+{"test":{"id":25,"name":"CliParser parse -p abreviado","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":31,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":558}
+{"test":{"id":26,"name":"VersionCompare normalize mantém versão limpa","suiteID":0,"groupIDs":[14,15,16],"metadata":{"skip":false,"skipReason":null},"line":19,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":559}
+{"testID":25,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":561}
+{"testID":26,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":561}
+{"test":{"id":27,"name":"CliParser parse --port inválido lança exceção","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":36,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":562}
+{"group":{"id":28,"suiteID":0,"parentID":15,"name":"VersionCompare parse","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":24,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":562}
+{"test":{"id":29,"name":"VersionCompare parse versão completa","suiteID":0,"groupIDs":[14,15,28],"metadata":{"skip":false,"skipReason":null},"line":25,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":563}
+{"testID":27,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":567}
+{"testID":29,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":568}
+{"test":{"id":30,"name":"CliParser parse --port fora do range lança exceção","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":43,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":568}
+{"test":{"id":31,"name":"VersionCompare parse versão sem patch","suiteID":0,"groupIDs":[14,15,28],"metadata":{"skip":false,"skipReason":null},"line":29,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":569}
+{"testID":21,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":570}
+{"test":{"id":32,"name":"isImageFile aceita jpeg","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":13,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":570}
+{"testID":30,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":571}
+{"testID":31,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":571}
+{"test":{"id":33,"name":"CliParser parse --update","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":50,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":572}
+{"test":{"id":34,"name":"VersionCompare parse versão só major","suiteID":0,"groupIDs":[14,15,28],"metadata":{"skip":false,"skipReason":null},"line":33,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":572}
+{"testID":32,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":573}
+{"testID":13,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":573}
+{"test":{"id":35,"name":"isImageFile aceita png","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":14,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":574}
+{"testID":33,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":574}
+{"test":{"id":36,"name":"ImageServer stop com WebSocket conectado não lança exceção","suiteID":6,"groupIDs":[11,12],"metadata":{"skip":false,"skipReason":null},"line":32,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/server_test.dart"},"type":"testStart","time":574}
+{"testID":34,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":575}
+{"test":{"id":37,"name":"CliParser parse -u abreviado","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":55,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":575}
+{"testID":35,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":576}
+{"group":{"id":38,"suiteID":0,"parentID":15,"name":"VersionCompare compare","metadata":{"skip":false,"skipReason":null},"testCount":6,"line":38,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":576}
+{"test":{"id":39,"name":"VersionCompare compare versão igual","suiteID":0,"groupIDs":[14,15,38],"metadata":{"skip":false,"skipReason":null},"line":39,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":577}
+{"test":{"id":40,"name":"isImageFile aceita gif","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":16,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":577}
+{"testID":37,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":578}
+{"test":{"id":41,"name":"CliParser parse --version","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":60,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":578}
+{"testID":40,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":579}
+{"testID":39,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":579}
+{"test":{"id":42,"name":"isImageFile aceita webp","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":17,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":579}
+{"test":{"id":43,"name":"VersionCompare compare local mais antiga (major)","suiteID":0,"groupIDs":[14,15,38],"metadata":{"skip":false,"skipReason":null},"line":46,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":580}
+{"testID":41,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":580}
+{"testID":42,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":581}
+{"test":{"id":44,"name":"CliParser parse --help","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":65,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":581}
+{"test":{"id":45,"name":"isImageFile aceita svg","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":18,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":581}
+{"testID":43,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":582}
+{"test":{"id":46,"name":"VersionCompare compare local mais antiga (minor)","suiteID":0,"groupIDs":[14,15,38],"metadata":{"skip":false,"skipReason":null},"line":53,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":582}
+{"testID":44,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":583}
+{"testID":45,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":583}
+{"test":{"id":47,"name":"CliParser parse combinação de argumentos","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":70,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":583}
+{"test":{"id":48,"name":"isImageFile aceita bmp","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":19,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":584}
+{"testID":46,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":584}
+{"testID":47,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":585}
+{"test":{"id":49,"name":"VersionCompare compare local mais antiga (patch)","suiteID":0,"groupIDs":[14,15,38],"metadata":{"skip":false,"skipReason":null},"line":60,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":585}
+{"test":{"id":50,"name":"CliParser usage contém informações essenciais","suiteID":2,"groupIDs":[8,9],"metadata":{"skip":false,"skipReason":null},"line":76,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/cli_test.dart"},"type":"testStart","time":585}
+{"testID":48,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":586}
+{"test":{"id":51,"name":"isImageFile aceita tiff","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":20,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":586}
+{"testID":49,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":587}
+{"test":{"id":52,"name":"VersionCompare compare local mais recente","suiteID":0,"groupIDs":[14,15,38],"metadata":{"skip":false,"skipReason":null},"line":67,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":587}
+{"testID":51,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":588}
+{"test":{"id":53,"name":"isImageFile aceita tif","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":588}
+{"testID":52,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":588}
+{"test":{"id":54,"name":"VersionCompare compare ignora prefixo v","suiteID":0,"groupIDs":[14,15,38],"metadata":{"skip":false,"skipReason":null},"line":74,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":589}
+{"testID":50,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":589}
+{"testID":53,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":590}
+{"test":{"id":55,"name":"isImageFile rejeita txt","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":23,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":596}
+{"testID":54,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":597}
+{"group":{"id":56,"suiteID":0,"parentID":15,"name":"VersionCompare hasUpdate","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":82,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"group","time":597}
+{"test":{"id":57,"name":"VersionCompare hasUpdate retorna true quando há atualização","suiteID":0,"groupIDs":[14,15,56],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":597}
+{"testID":55,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":598}
+{"test":{"id":58,"name":"isImageFile rejeita pdf","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":24,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":598}
+{"testID":57,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":599}
+{"testID":58,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":599}
+{"test":{"id":59,"name":"VersionCompare hasUpdate retorna false quando versões iguais","suiteID":0,"groupIDs":[14,15,56],"metadata":{"skip":false,"skipReason":null},"line":87,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":599}
+{"test":{"id":60,"name":"isImageFile rejeita sem extensão","suiteID":4,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":25,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":600}
+{"testID":59,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":601}
+{"testID":60,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":601}
+{"test":{"id":61,"name":"VersionCompare hasUpdate retorna false quando local é mais recente","suiteID":0,"groupIDs":[14,15,56],"metadata":{"skip":false,"skipReason":null},"line":91,"column":7,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/version_compare_test.dart"},"type":"testStart","time":602}
+{"group":{"id":62,"suiteID":4,"parentID":19,"name":"ImageWatcher","metadata":{"skip":false,"skipReason":null},"testCount":5,"line":28,"column":3,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"group","time":602}
+{"test":{"id":63,"name":"ImageWatcher validate retorna true para diretório válido","suiteID":4,"groupIDs":[19,62],"metadata":{"skip":false,"skipReason":null},"line":39,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":603}
+{"testID":61,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":604}
+{"testID":63,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":618}
+{"test":{"id":64,"name":"ImageWatcher validate retorna false para diretório inexistente","suiteID":4,"groupIDs":[19,62],"metadata":{"skip":false,"skipReason":null},"line":44,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":619}
+{"testID":64,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":620}
+{"test":{"id":65,"name":"ImageWatcher scanExisting encontra imagem mais recente","suiteID":4,"groupIDs":[19,62],"metadata":{"skip":false,"skipReason":null},"line":49,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":621}
+{"testID":36,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":757}
+{"testID":65,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1640}
+{"test":{"id":66,"name":"ImageWatcher scanExisting retorna null se não há imagens","suiteID":4,"groupIDs":[19,62],"metadata":{"skip":false,"skipReason":null},"line":65,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":1640}
+{"testID":66,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1643}
+{"test":{"id":67,"name":"ImageWatcher detecta nova imagem","suiteID":4,"groupIDs":[19,62],"metadata":{"skip":false,"skipReason":null},"line":77,"column":5,"url":"file:///home/helio/Dropbox/WORK/outros/daniel/sidelook/test/watcher_test.dart"},"type":"testStart","time":1644}
+{"testID":67,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1767}
+{"success":true,"type":"done","time":1773}

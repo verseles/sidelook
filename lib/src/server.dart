@@ -199,8 +199,9 @@ class ImageServer {
 
   /// Para o servidor
   Future<void> stop() async {
-    // Fechar todos os WebSockets
-    for (final client in _clients) {
+    // Fechar todos os WebSockets (usar cópia para evitar modificação concorrente)
+    final clientsCopy = List<WebSocket>.from(_clients);
+    for (final client in clientsCopy) {
       await client.close();
     }
     _clients.clear();
