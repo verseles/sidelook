@@ -1,0 +1,113 @@
+{"protocolVersion":"0.1.1","runnerVersion":"1.28.0","pid":10446,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"test/watcher_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading test/watcher_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":2}
+{"suite":{"id":2,"platform":"vm","path":"test/version_compare_test.dart"},"type":"suite","time":10}
+{"test":{"id":3,"name":"loading test/version_compare_test.dart","suiteID":2,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":10}
+{"suite":{"id":4,"platform":"vm","path":"test/cli_test.dart"},"type":"suite","time":13}
+{"test":{"id":5,"name":"loading test/cli_test.dart","suiteID":4,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":14}
+{"count":3,"time":14,"type":"allSuites"}
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":741}
+{"group":{"id":6,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":17,"line":null,"column":null,"url":null},"type":"group","time":760}
+{"group":{"id":7,"suiteID":0,"parentID":6,"name":"isImageFile","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":8,"column":3,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"group","time":761}
+{"test":{"id":8,"name":"isImageFile aceita jpg","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":9,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":762}
+{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":778}
+{"group":{"id":9,"suiteID":2,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":null,"column":null,"url":null},"type":"group","time":779}
+{"group":{"id":10,"suiteID":2,"parentID":9,"name":"VersionCompare","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":5,"column":3,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"group","time":779}
+{"group":{"id":11,"suiteID":2,"parentID":10,"name":"VersionCompare normalize","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":6,"column":5,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"group","time":780}
+{"test":{"id":12,"name":"VersionCompare normalize remove prefixo v","suiteID":2,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":7,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":780}
+{"testID":5,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":789}
+{"group":{"id":13,"suiteID":4,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":null,"column":null,"url":null},"type":"group","time":789}
+{"group":{"id":14,"suiteID":4,"parentID":13,"name":"CliParser","metadata":{"skip":false,"skipReason":null},"testCount":12,"line":11,"column":3,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"group","time":789}
+{"test":{"id":15,"name":"CliParser parse sem argumentos usa diretório atual","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":789}
+{"testID":8,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":806}
+{"test":{"id":16,"name":"isImageFile aceita jpeg","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":10,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":808}
+{"testID":16,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":810}
+{"test":{"id":17,"name":"isImageFile aceita png","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":11,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":810}
+{"testID":17,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":812}
+{"test":{"id":18,"name":"isImageFile aceita gif","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":13,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":813}
+{"testID":18,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":817}
+{"test":{"id":19,"name":"isImageFile aceita webp","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":14,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":819}
+{"testID":19,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":820}
+{"test":{"id":20,"name":"isImageFile aceita svg","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":15,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":821}
+{"testID":20,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":823}
+{"test":{"id":21,"name":"isImageFile aceita bmp","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":16,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":823}
+{"testID":21,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":824}
+{"test":{"id":22,"name":"isImageFile aceita tiff","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":17,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":825}
+{"testID":22,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":827}
+{"test":{"id":23,"name":"isImageFile aceita tif","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":18,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":827}
+{"testID":23,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":829}
+{"test":{"id":24,"name":"isImageFile rejeita txt","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":20,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":829}
+{"testID":24,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":831}
+{"test":{"id":25,"name":"isImageFile rejeita pdf","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":831}
+{"testID":25,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":833}
+{"test":{"id":26,"name":"isImageFile rejeita sem extensão","suiteID":0,"groupIDs":[6,7],"metadata":{"skip":false,"skipReason":null},"line":22,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":833}
+{"testID":26,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":835}
+{"group":{"id":27,"suiteID":0,"parentID":6,"name":"ImageWatcher","metadata":{"skip":false,"skipReason":null},"testCount":5,"line":25,"column":3,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"group","time":835}
+{"test":{"id":28,"name":"ImageWatcher validate retorna true para diretório válido","suiteID":0,"groupIDs":[6,27],"metadata":{"skip":false,"skipReason":null},"line":36,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":836}
+{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":836}
+{"test":{"id":29,"name":"VersionCompare normalize remove sufixo -beta","suiteID":2,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":11,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":840}
+{"testID":15,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":842}
+{"testID":29,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":843}
+{"test":{"id":30,"name":"CliParser parse com diretório","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":843}
+{"test":{"id":31,"name":"VersionCompare normalize remove sufixo +build","suiteID":2,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":15,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":846}
+{"testID":30,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":847}
+{"test":{"id":32,"name":"CliParser parse --port com valor válido","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":26,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":847}
+{"testID":31,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":848}
+{"test":{"id":33,"name":"VersionCompare normalize mantém versão limpa","suiteID":2,"groupIDs":[9,10,11],"metadata":{"skip":false,"skipReason":null},"line":19,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":848}
+{"testID":33,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":851}
+{"group":{"id":34,"suiteID":2,"parentID":10,"name":"VersionCompare parse","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":24,"column":5,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"group","time":853}
+{"test":{"id":35,"name":"VersionCompare parse versão completa","suiteID":2,"groupIDs":[9,10,34],"metadata":{"skip":false,"skipReason":null},"line":25,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":853}
+{"testID":32,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":855}
+{"test":{"id":36,"name":"CliParser parse -p abreviado","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":31,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":856}
+{"testID":28,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":858}
+{"testID":36,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":859}
+{"testID":35,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":859}
+{"test":{"id":37,"name":"ImageWatcher validate retorna false para diretório inexistente","suiteID":0,"groupIDs":[6,27],"metadata":{"skip":false,"skipReason":null},"line":41,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":860}
+{"test":{"id":38,"name":"CliParser parse --port inválido lança exceção","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":36,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":860}
+{"test":{"id":39,"name":"VersionCompare parse versão sem patch","suiteID":2,"groupIDs":[9,10,34],"metadata":{"skip":false,"skipReason":null},"line":29,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":862}
+{"testID":37,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":864}
+{"testID":39,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":865}
+{"test":{"id":40,"name":"ImageWatcher scanExisting encontra imagem mais recente","suiteID":0,"groupIDs":[6,27],"metadata":{"skip":false,"skipReason":null},"line":46,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":865}
+{"test":{"id":41,"name":"VersionCompare parse versão só major","suiteID":2,"groupIDs":[9,10,34],"metadata":{"skip":false,"skipReason":null},"line":33,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":866}
+{"testID":38,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":867}
+{"test":{"id":42,"name":"CliParser parse --port fora do range lança exceção","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":43,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":867}
+{"testID":41,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":868}
+{"group":{"id":43,"suiteID":2,"parentID":10,"name":"VersionCompare compare","metadata":{"skip":false,"skipReason":null},"testCount":6,"line":38,"column":5,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"group","time":868}
+{"test":{"id":44,"name":"VersionCompare compare versão igual","suiteID":2,"groupIDs":[9,10,43],"metadata":{"skip":false,"skipReason":null},"line":39,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":868}
+{"testID":42,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":869}
+{"test":{"id":45,"name":"CliParser parse --update","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":50,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":870}
+{"testID":44,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":870}
+{"test":{"id":46,"name":"VersionCompare compare local mais antiga (major)","suiteID":2,"groupIDs":[9,10,43],"metadata":{"skip":false,"skipReason":null},"line":46,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":871}
+{"testID":45,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":872}
+{"testID":46,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":872}
+{"test":{"id":47,"name":"CliParser parse -u abreviado","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":55,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":873}
+{"test":{"id":48,"name":"VersionCompare compare local mais antiga (minor)","suiteID":2,"groupIDs":[9,10,43],"metadata":{"skip":false,"skipReason":null},"line":53,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":873}
+{"testID":48,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":875}
+{"testID":47,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":875}
+{"test":{"id":49,"name":"VersionCompare compare local mais antiga (patch)","suiteID":2,"groupIDs":[9,10,43],"metadata":{"skip":false,"skipReason":null},"line":60,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":875}
+{"test":{"id":50,"name":"CliParser parse --version","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":60,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":876}
+{"testID":49,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":877}
+{"test":{"id":51,"name":"VersionCompare compare local mais recente","suiteID":2,"groupIDs":[9,10,43],"metadata":{"skip":false,"skipReason":null},"line":67,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":877}
+{"testID":50,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":878}
+{"test":{"id":52,"name":"CliParser parse --help","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":65,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":878}
+{"testID":51,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":879}
+{"test":{"id":53,"name":"VersionCompare compare ignora prefixo v","suiteID":2,"groupIDs":[9,10,43],"metadata":{"skip":false,"skipReason":null},"line":74,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":879}
+{"testID":52,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":880}
+{"test":{"id":54,"name":"CliParser parse combinação de argumentos","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":70,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":880}
+{"testID":53,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":881}
+{"group":{"id":55,"suiteID":2,"parentID":10,"name":"VersionCompare hasUpdate","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":82,"column":5,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"group","time":882}
+{"test":{"id":56,"name":"VersionCompare hasUpdate retorna true quando há atualização","suiteID":2,"groupIDs":[9,10,55],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":882}
+{"testID":54,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":882}
+{"test":{"id":57,"name":"CliParser usage contém informações essenciais","suiteID":4,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":76,"column":5,"url":"file:///app/sidelook/test/cli_test.dart"},"type":"testStart","time":883}
+{"testID":56,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":883}
+{"test":{"id":58,"name":"VersionCompare hasUpdate retorna false quando versões iguais","suiteID":2,"groupIDs":[9,10,55],"metadata":{"skip":false,"skipReason":null},"line":87,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":884}
+{"testID":58,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":886}
+{"test":{"id":59,"name":"VersionCompare hasUpdate retorna false quando local é mais recente","suiteID":2,"groupIDs":[9,10,55],"metadata":{"skip":false,"skipReason":null},"line":91,"column":7,"url":"file:///app/sidelook/test/version_compare_test.dart"},"type":"testStart","time":886}
+{"testID":59,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":888}
+{"testID":57,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":896}
+{"testID":40,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1896}
+{"test":{"id":60,"name":"ImageWatcher scanExisting retorna null se não há imagens","suiteID":0,"groupIDs":[6,27],"metadata":{"skip":false,"skipReason":null},"line":62,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":1897}
+{"testID":60,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1902}
+{"test":{"id":61,"name":"ImageWatcher detecta nova imagem","suiteID":0,"groupIDs":[6,27],"metadata":{"skip":false,"skipReason":null},"line":74,"column":5,"url":"file:///app/sidelook/test/watcher_test.dart"},"type":"testStart","time":1902}
+{"testID":61,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2045}
+{"success":true,"type":"done","time":2052}
