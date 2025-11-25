@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 permissions:
   contents: write
@@ -105,6 +105,8 @@ jobs:
   release:
     needs: [build-linux, build-macos, build-windows]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -142,7 +144,7 @@ jobs:
           echo "$NOTES" > release_notes.txt
 
       - name: Criar Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: ${{ steps.release_notes.outputs.version }}
           body_path: release_notes.txt
