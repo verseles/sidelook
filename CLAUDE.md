@@ -9,7 +9,10 @@ Ao concluir qualquer tarefa neste projeto, siga rigorosamente esta sequência:
 3. **Lint** (se disponível): Execute `make lint` para verificar qualidade do código
 4. **Build**: Execute `make build` para compilar o binário para o sistema operacional atual
 5. **Commit**: Somente após confirmação, faça o commit das alterações
-6. **Notificar**: Envie uma notificação para o usuário
+6. **Push**: Envie o commit para o repositório remoto
+7. **Tag**: Crie uma tag para a versão atual (patch ou minor) mas somente se a mudança reflete em uma nova build
+8. **Watch**: Usar gh com sleep para monitorar o status do workflow de release, caso falhe identificar o problema e repetir os passos acima
+9. **Notificar**: Envie notificação ao usuário
 
 ## Comandos Importantes
 

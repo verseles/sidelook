@@ -131,6 +131,37 @@ func CheckInBackground() <-chan *CheckResult {
 	return ch
 }
 
+// copyFile copia um arquivo de src para dst, funcionando entre partições diferentes
+func copyFile(src, dst string) error {
+	sourceFile, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer sourceFile.Close()
+
+	destFile, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+	defer destFile.Close()
+
+	if _, err := io.Copy(destFile, sourceFile); err != nil {
+		return err
+	}
+
+	// Sincronizar para garantir que foi escrito
+	if err := destFile.Sync(); err != nil {
+		return err
+	}
+
+	// Copiar permissões do arquivo original
+	sourceInfo, err := os.Stat(src)
+	if err != nil {
+		return err
+	}
+	return os.Chmod(dst, sourceInfo.Mode())
+}
+
 // PerformUpdate executa a atualização completa
 func PerformUpdate() error {
 	fmt.Println("Verificando atualizações...")
@@ -207,14 +238,16 @@ func PerformUpdate() error {
 	os.Remove(backupPath)             // Ignorar erro
 	os.Rename(currentExe, backupPath) // Ignorar erro no backup
 
-	// Mover novo para posição do atual
-	if err := os.Rename(tempPath, currentExe); err != nil {
+	// Copiar novo para posição do atual (funciona cross-device)
+	if err := copyFile(tempPath, currentExe); err != nil {
 		// Tentar restaurar backup
 		os.Rename(backupPath, currentExe)
+		os.Remove(tempPath)
 		return fmt.Errorf("falha ao instalar atualização: %w", err)
 	}
 
-	// Limpar backup
+	// Limpar arquivos temporários
+	os.Remove(tempPath)
 	os.Remove(backupPath)
 
 	fmt.Printf("Atualizado para versão %s!\n", release.Version)
