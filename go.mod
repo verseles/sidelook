@@ -1,4 +1,4 @@
-module github.com/insign/sidelook
+module github.com/verseles/sidelook
 
 go 1.21
 

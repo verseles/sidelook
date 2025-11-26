@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/insign/sidelook/internal/watcher"
+	"github.com/verseles/sidelook/internal/watcher"
 )
 
 // Server é o servidor HTTP com suporte a WebSocket

@@ -11,12 +11,12 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/insign/sidelook/internal/version"
-	"github.com/insign/sidelook/pkg/semver"
+	"github.com/verseles/sidelook/internal/version"
+	"github.com/verseles/sidelook/pkg/semver"
 )
 
 const (
-	apiURL  = "https://api.github.com/repos/insign/sidelook/releases/latest"
+	apiURL  = "https://api.github.com/repos/verseles/sidelook/releases/latest"
 	timeout = 10 * time.Second
 )
 

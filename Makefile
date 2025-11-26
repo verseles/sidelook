@@ -6,9 +6,9 @@ COMMIT ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 BUILD_DATE ?= $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 LDFLAGS := -ldflags "-s -w \
-	-X github.com/insign/sidelook/internal/version.Version=$(VERSION) \
-	-X github.com/insign/sidelook/internal/version.Commit=$(COMMIT) \
-	-X github.com/insign/sidelook/internal/version.BuildDate=$(BUILD_DATE)"
+	-X github.com/verseles/sidelook/internal/version.Version=$(VERSION) \
+	-X github.com/verseles/sidelook/internal/version.Commit=$(COMMIT) \
+	-X github.com/verseles/sidelook/internal/version.BuildDate=$(BUILD_DATE)"
 
 BINARY := sidelook
 CMD_PATH := ./cmd/sidelook

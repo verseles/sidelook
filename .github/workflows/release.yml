@@ -48,9 +48,9 @@ jobs:
           BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
           go build -ldflags "-s -w \
-            -X github.com/insign/sidelook/internal/version.Version=$VERSION \
-            -X github.com/insign/sidelook/internal/version.Commit=$COMMIT \
-            -X github.com/insign/sidelook/internal/version.BuildDate=$BUILD_DATE" \
+            -X github.com/verseles/sidelook/internal/version.Version=$VERSION \
+            -X github.com/verseles/sidelook/internal/version.Commit=$COMMIT \
+            -X github.com/verseles/sidelook/internal/version.BuildDate=$BUILD_DATE" \
             -o sidelook-linux ./cmd/sidelook
 
       - uses: actions/upload-artifact@v4
@@ -76,9 +76,9 @@ jobs:
           COMMIT=$(git rev-parse --short HEAD)
           BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           LDFLAGS="-s -w \
-            -X github.com/insign/sidelook/internal/version.Version=$VERSION \
-            -X github.com/insign/sidelook/internal/version.Commit=$COMMIT \
-            -X github.com/insign/sidelook/internal/version.BuildDate=$BUILD_DATE"
+            -X github.com/verseles/sidelook/internal/version.Version=$VERSION \
+            -X github.com/verseles/sidelook/internal/version.Commit=$COMMIT \
+            -X github.com/verseles/sidelook/internal/version.BuildDate=$BUILD_DATE"
 
           GOOS=darwin GOARCH=amd64 go build -ldflags "$LDFLAGS" -o sidelook-macos-amd64 ./cmd/sidelook
           GOOS=darwin GOARCH=arm64 go build -ldflags "$LDFLAGS" -o sidelook-macos-arm64 ./cmd/sidelook
@@ -109,9 +109,9 @@ jobs:
           BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
           go build -ldflags "-s -w \
-            -X github.com/insign/sidelook/internal/version.Version=$VERSION \
-            -X github.com/insign/sidelook/internal/version.Commit=$COMMIT \
-            -X github.com/insign/sidelook/internal/version.BuildDate=$BUILD_DATE" \
+            -X github.com/verseles/sidelook/internal/version.Version=$VERSION \
+            -X github.com/verseles/sidelook/internal/version.Commit=$COMMIT \
+            -X github.com/verseles/sidelook/internal/version.BuildDate=$BUILD_DATE" \
             -o sidelook-windows.exe ./cmd/sidelook
 
       - uses: actions/upload-artifact@v4

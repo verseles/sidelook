@@ -13,7 +13,7 @@ Visualizador de imagens em tempo real via navegador.
 
 ## Instalação
 
-Baixe na [página de releases](https://github.com/insign/sidelook/releases/latest):
+Baixe na [página de releases](https://github.com/verseles/sidelook/releases/latest):
 
 - Linux: `sidelook-linux`
 - macOS: `sidelook-macos` (Universal)

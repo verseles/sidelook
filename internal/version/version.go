@@ -2,7 +2,7 @@
 package version
 
 // Estas variáveis são definidas em tempo de compilação via ldflags
-// Exemplo: go build -ldflags "-X github.com/insign/sidelook/internal/version.Version=1.0.0"
+// Exemplo: go build -ldflags "-X github.com/verseles/sidelook/internal/version.Version=1.0.0"
 var (
 	// Version é a versão semântica do aplicativo
 	Version = "dev"

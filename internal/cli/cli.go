@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/insign/sidelook/internal/version"
+	"github.com/verseles/sidelook/internal/version"
 )
 
 // Config contém a configuração parseada dos argumentos CLI

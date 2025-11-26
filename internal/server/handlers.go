@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/insign/sidelook/internal/assets"
-	"github.com/insign/sidelook/internal/watcher"
+	"github.com/verseles/sidelook/internal/assets"
+	"github.com/verseles/sidelook/internal/watcher"
 )
 
 // registerRoutes registra os handlers HTTP

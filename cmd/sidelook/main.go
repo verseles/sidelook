@@ -7,12 +7,12 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/insign/sidelook/internal/browser"
-	"github.com/insign/sidelook/internal/cli"
-	"github.com/insign/sidelook/internal/server"
-	"github.com/insign/sidelook/internal/updater"
-	"github.com/insign/sidelook/internal/version"
-	"github.com/insign/sidelook/internal/watcher"
+	"github.com/verseles/sidelook/internal/browser"
+	"github.com/verseles/sidelook/internal/cli"
+	"github.com/verseles/sidelook/internal/server"
+	"github.com/verseles/sidelook/internal/updater"
+	"github.com/verseles/sidelook/internal/version"
+	"github.com/verseles/sidelook/internal/watcher"
 )
 
 // Cores ANSI
