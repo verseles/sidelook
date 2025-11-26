@@ -70,19 +70,17 @@ jobs:
         with:
           go-version: '1.21'
 
-      - name: Build (Intel + ARM)
+      - name: Build (ARM64 only)
         run: |
           VERSION=${GITHUB_REF#refs/tags/}
           COMMIT=$(git rev-parse --short HEAD)
           BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          LDFLAGS="-s -w \
+
+          GOOS=darwin GOARCH=arm64 go build -ldflags "-s -w \
             -X github.com/verseles/sidelook/internal/version.Version=$VERSION \
             -X github.com/verseles/sidelook/internal/version.Commit=$COMMIT \
-            -X github.com/verseles/sidelook/internal/version.BuildDate=$BUILD_DATE"
-
-          GOOS=darwin GOARCH=amd64 go build -ldflags "$LDFLAGS" -o sidelook-macos-amd64 ./cmd/sidelook
-          GOOS=darwin GOARCH=arm64 go build -ldflags "$LDFLAGS" -o sidelook-macos-arm64 ./cmd/sidelook
-          lipo -create -output sidelook-macos sidelook-macos-amd64 sidelook-macos-arm64
+            -X github.com/verseles/sidelook/internal/version.BuildDate=$BUILD_DATE" \
+            -o sidelook-macos ./cmd/sidelook
 
       - uses: actions/upload-artifact@v4
         with:

@@ -18,7 +18,7 @@ Visualizador de imagens em tempo real via navegador.
 Baixe na [página de releases](https://github.com/verseles/sidelook/releases/latest):
 
 - Linux: `sidelook-linux`
-- macOS: `sidelook-macos` (Universal)
+- macOS: `sidelook-macos` (Apple Silicon / ARM64)
 - Windows: `sidelook-windows.exe`
 
 ```bash
