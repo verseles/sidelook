@@ -292,6 +292,148 @@ func TestImageWatcher_DetectImageRename(t *testing.T) {
 	}
 }
 
+func TestNewWithSlideshowCount(t *testing.T) {
+	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	w, err := NewWithSlideshowCount(tmpDir, 5)
+	if err != nil {
+		t.Errorf("NewWithSlideshowCount() error = %v, want nil", err)
+	}
+	if w != nil {
+		defer w.Stop()
+		if w.maxRecent != 5 {
+			t.Errorf("maxRecent = %d, want 5", w.maxRecent)
+		}
+	}
+}
+
+func TestRecentImages(t *testing.T) {
+	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	// Criar 6 imagens com diferentes timestamps
+	images := []string{"img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png"}
+	for i, name := range images {
+		path := filepath.Join(tmpDir, name)
+		if err := os.WriteFile(path, []byte{0x89, 0x50, 0x4E, 0x47}, 0644); err != nil {
+			t.Fatal(err)
+		}
+		if i < len(images)-1 {
+			time.Sleep(50 * time.Millisecond)
+		}
+	}
+
+	// Criar watcher com limite de 4 imagens
+	w, err := NewWithSlideshowCount(tmpDir, 4)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer w.Stop()
+
+	// Scan inicial
+	count, _, err := w.ScanExisting()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if count != 6 {
+		t.Errorf("ScanExisting() count = %d, want 6", count)
+	}
+
+	// Verificar se mantém apenas 4 mais recentes
+	recent := w.RecentImages()
+	if len(recent) != 4 {
+		t.Errorf("RecentImages() length = %d, want 4", len(recent))
+	}
+
+	// Verificar se está ordenado (mais recente primeiro)
+	recentPaths := w.RecentImagesRelative()
+	if len(recentPaths) != 4 {
+		t.Fatal("RecentImagesRelative() length != 4")
+	}
+
+	// img6 deve ser a mais recente (primeiro)
+	if recentPaths[0] != "img6.png" {
+		t.Errorf("RecentImagesRelative()[0] = %q, want img6.png", recentPaths[0])
+	}
+	// img3 deve ser a mais antiga das 4 (último)
+	if recentPaths[3] != "img3.png" {
+		t.Errorf("RecentImagesRelative()[3] = %q, want img3.png", recentPaths[3])
+	}
+}
+
+func TestSlideshowUpdatesOnNewImage(t *testing.T) {
+	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	// Criar 2 imagens iniciais
+	img1 := filepath.Join(tmpDir, "img1.png")
+	if err := os.WriteFile(img1, []byte{0x89, 0x50, 0x4E, 0x47}, 0644); err != nil {
+		t.Fatal(err)
+	}
+	time.Sleep(50 * time.Millisecond)
+
+	img2 := filepath.Join(tmpDir, "img2.png")
+	if err := os.WriteFile(img2, []byte{0x89, 0x50, 0x4E, 0x47}, 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	// Criar watcher com limite de 3
+	w, err := NewWithSlideshowCount(tmpDir, 3)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer w.Stop()
+
+	_, _, err = w.ScanExisting()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if err := w.Start(); err != nil {
+		t.Fatal(err)
+	}
+
+	// Dar tempo para watcher inicializar
+	time.Sleep(100 * time.Millisecond)
+
+	// Verificar estado inicial: 2 imagens
+	before := w.RecentImagesRelative()
+	if len(before) != 2 {
+		t.Fatalf("Before: RecentImagesRelative() length = %d, want 2", len(before))
+	}
+
+	// Adicionar nova imagem
+	img3 := filepath.Join(tmpDir, "img3.png")
+	if err := os.WriteFile(img3, []byte{0x89, 0x50, 0x4E, 0x47}, 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	// Aguardar detecção
+	time.Sleep(200 * time.Millisecond)
+
+	// Verificar que lista foi atualizada para 3 imagens
+	after := w.RecentImagesRelative()
+	if len(after) != 3 {
+		t.Errorf("After: RecentImagesRelative() length = %d, want 3", len(after))
+	}
+
+	// img3 deve ser a mais recente (primeiro)
+	if after[0] != "img3.png" {
+		t.Errorf("After: RecentImagesRelative()[0] = %q, want img3.png", after[0])
+	}
+}
+
 func TestImageWatcher_DetectLastImageDeletion(t *testing.T) {
 	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
 	if err != nil {
