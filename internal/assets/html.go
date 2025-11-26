@@ -122,6 +122,12 @@ func GenerateHTML(initialImage string) string {
         const data = JSON.parse(event.data);
         if (data.type === 'new_image') {
           updateImage(data.path);
+        } else if (data.type === 'image_deleted') {
+          if (data.path) {
+            updateImage(data.path);
+          } else {
+            showWaiting();
+          }
         }
       };
 
@@ -142,6 +148,31 @@ func GenerateHTML(initialImage string) string {
         reconnectAttempts++;
         console.log('Tentando reconectar... (' + reconnectAttempts + '/' + maxReconnectAttempts + ')');
         setTimeout(connect, reconnectDelay);
+      }
+    }
+
+    function showWaiting() {
+      const current = document.getElementById('viewer');
+      const waiting = document.getElementById('waiting');
+
+      if (waiting) {
+        return; // Já está mostrando
+      }
+
+      if (current) {
+        current.classList.add('fade-out');
+        setTimeout(() => {
+          current.remove();
+          const waitingDiv = document.createElement('div');
+          waitingDiv.id = 'waiting';
+          waitingDiv.textContent = 'Aguardando primeira imagem...';
+          container.appendChild(waitingDiv);
+        }, 200);
+      } else {
+        const waitingDiv = document.createElement('div');
+        waitingDiv.id = 'waiting';
+        waitingDiv.textContent = 'Aguardando primeira imagem...';
+        container.appendChild(waitingDiv);
       }
     }
 

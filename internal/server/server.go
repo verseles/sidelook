@@ -53,8 +53,9 @@ func New(w *watcher.ImageWatcher, preferredPort int) *Server {
 
 	s.registerRoutes()
 
-	// Configurar callback do watcher
+	// Configurar callbacks do watcher
 	w.OnNewImage = s.broadcastNewImage
+	w.OnImageDeleted = s.broadcastImageDeleted
 
 	return s
 }

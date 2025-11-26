@@ -47,6 +47,9 @@ type ImageWatcher struct {
 	// OnNewImage é chamado quando uma nova imagem é detectada
 	OnNewImage func(path string)
 
+	// OnImageDeleted é chamado quando a imagem atual é deletada
+	OnImageDeleted func(path string)
+
 	done chan struct{}
 }
 
@@ -134,6 +137,41 @@ func (iw *ImageWatcher) CurrentImageRelative() string {
 	return rel
 }
 
+// findMostRecentImage procura a imagem mais recente no diretório
+func (iw *ImageWatcher) findMostRecentImage() *ImageInfo {
+	entries, err := os.ReadDir(iw.dir)
+	if err != nil {
+		return nil
+	}
+
+	var latestInfo *ImageInfo
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+
+		path := filepath.Join(iw.dir, entry.Name())
+		if !IsImageFile(path) {
+			continue
+		}
+
+		info, err := entry.Info()
+		if err != nil {
+			continue
+		}
+
+		if latestInfo == nil || info.ModTime().After(latestInfo.ModTime) {
+			latestInfo = &ImageInfo{
+				Path:    path,
+				ModTime: info.ModTime(),
+			}
+		}
+	}
+
+	return latestInfo
+}
+
 // Start inicia o monitoramento
 func (iw *ImageWatcher) Start() error {
 	if err := iw.watcher.Add(iw.dir); err != nil {
@@ -167,12 +205,52 @@ func (iw *ImageWatcher) loop() {
 }
 
 func (iw *ImageWatcher) handleEvent(event fsnotify.Event) {
-	// Interessados em Create e Write
+	path := event.Name
+
+	// Tratar deleção
+	if event.Op&fsnotify.Remove != 0 {
+		if !IsImageFile(path) {
+			return
+		}
+
+		// Verificar se a imagem deletada é a atual
+		iw.mu.RLock()
+		currentPath := ""
+		if iw.currentImage != nil {
+			currentPath = iw.currentImage.Path
+		}
+		iw.mu.RUnlock()
+
+		if currentPath == path {
+			// Encontrar próxima imagem mais recente
+			nextImage := iw.findMostRecentImage()
+
+			iw.mu.Lock()
+			iw.currentImage = nextImage
+			iw.mu.Unlock()
+
+			// Notificar callback de deleção
+			if iw.OnImageDeleted != nil {
+				var relPath string
+				if nextImage != nil {
+					rel, err := filepath.Rel(iw.dir, nextImage.Path)
+					if err != nil {
+						relPath = filepath.Base(nextImage.Path)
+					} else {
+						relPath = rel
+					}
+				}
+				iw.OnImageDeleted(relPath)
+			}
+		}
+		return
+	}
+
+	// Tratar criação e modificação
 	if event.Op&(fsnotify.Create|fsnotify.Write) == 0 {
 		return
 	}
 
-	path := event.Name
 	if !IsImageFile(path) {
 		return
 	}

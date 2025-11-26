@@ -151,3 +151,128 @@ func TestImageWatcher_DetectNewImage(t *testing.T) {
 		t.Error("Timeout aguardando detecção de nova imagem")
 	}
 }
+
+func TestImageWatcher_DetectImageDeletion(t *testing.T) {
+	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	// Criar duas imagens
+	img1 := filepath.Join(tmpDir, "img1.png")
+	if err := os.WriteFile(img1, []byte{0x89, 0x50, 0x4E, 0x47}, 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	time.Sleep(100 * time.Millisecond)
+
+	img2 := filepath.Join(tmpDir, "img2.jpg")
+	if err := os.WriteFile(img2, []byte{0xFF, 0xD8, 0xFF}, 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	w, err := New(tmpDir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer w.Stop()
+
+	// Scan inicial - img2 deve ser a mais recente
+	_, _, err = w.ScanExisting()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	deleted := make(chan string, 1)
+	w.OnImageDeleted = func(path string) {
+		deleted <- path
+	}
+
+	if err := w.Start(); err != nil {
+		t.Fatal(err)
+	}
+
+	// Dar tempo para watcher inicializar
+	time.Sleep(100 * time.Millisecond)
+
+	// Deletar a imagem atual (img2)
+	if err := os.Remove(img2); err != nil {
+		t.Fatal(err)
+	}
+
+	// Aguardar notificação de deleção
+	select {
+	case path := <-deleted:
+		if path != "img1.png" {
+			t.Errorf("OnImageDeleted path = %q, want %q (próxima mais recente)", path, "img1.png")
+		}
+
+		// Verificar se a imagem atual foi atualizada
+		current := w.CurrentImageRelative()
+		if current != "img1.png" {
+			t.Errorf("CurrentImageRelative() = %q, want %q", current, "img1.png")
+		}
+	case <-time.After(5 * time.Second):
+		t.Error("Timeout aguardando detecção de deleção de imagem")
+	}
+}
+
+func TestImageWatcher_DetectLastImageDeletion(t *testing.T) {
+	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	// Criar apenas uma imagem
+	img1 := filepath.Join(tmpDir, "img1.png")
+	if err := os.WriteFile(img1, []byte{0x89, 0x50, 0x4E, 0x47}, 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	w, err := New(tmpDir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer w.Stop()
+
+	// Scan inicial
+	_, _, err = w.ScanExisting()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	deleted := make(chan string, 1)
+	w.OnImageDeleted = func(path string) {
+		deleted <- path
+	}
+
+	if err := w.Start(); err != nil {
+		t.Fatal(err)
+	}
+
+	// Dar tempo para watcher inicializar
+	time.Sleep(100 * time.Millisecond)
+
+	// Deletar a única imagem
+	if err := os.Remove(img1); err != nil {
+		t.Fatal(err)
+	}
+
+	// Aguardar notificação de deleção
+	select {
+	case path := <-deleted:
+		if path != "" {
+			t.Errorf("OnImageDeleted path = %q, want empty string (sem mais imagens)", path)
+		}
+
+		// Verificar se não há mais imagem atual
+		current := w.CurrentImageRelative()
+		if current != "" {
+			t.Errorf("CurrentImageRelative() = %q, want empty string", current)
+		}
+	case <-time.After(5 * time.Second):
+		t.Error("Timeout aguardando detecção de deleção de última imagem")
+	}
+}

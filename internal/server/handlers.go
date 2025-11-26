@@ -114,3 +114,25 @@ func (s *Server) broadcastNewImage(path string) {
 		}(client)
 	}
 }
+
+// broadcastImageDeleted envia notificação quando a imagem atual é deletada
+func (s *Server) broadcastImageDeleted(path string) {
+	msg := wsMessage{
+		Type: "image_deleted",
+		Path: path,
+	}
+
+	data, err := json.Marshal(msg)
+	if err != nil {
+		return
+	}
+
+	s.clientsMu.RLock()
+	defer s.clientsMu.RUnlock()
+
+	for client := range s.clients {
+		go func(c *wsClient) {
+			c.send <- data
+		}(client)
+	}
+}
