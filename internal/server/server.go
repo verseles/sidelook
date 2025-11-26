@@ -15,11 +15,11 @@ import (
 
 // Server é o servidor HTTP com suporte a WebSocket
 type Server struct {
-	watcher          *watcher.ImageWatcher
-	server           *http.Server
-	mux              *http.ServeMux
-	port             int
-	upgrader         websocket.Upgrader
+	watcher           *watcher.ImageWatcher
+	server            *http.Server
+	mux               *http.ServeMux
+	port              int
+	upgrader          websocket.Upgrader
 	slideshowInterval int // Intervalo em segundos entre imagens no slideshow
 
 	clients   map[*wsClient]bool
@@ -35,9 +35,9 @@ type wsClient struct {
 // New cria um novo servidor
 func New(w *watcher.ImageWatcher, preferredPort int, slideshowInterval int) *Server {
 	s := &Server{
-		watcher:          w,
-		mux:              http.NewServeMux(),
-		clients:          make(map[*wsClient]bool),
+		watcher:           w,
+		mux:               http.NewServeMux(),
+		clients:           make(map[*wsClient]bool),
 		slideshowInterval: slideshowInterval,
 		upgrader: websocket.Upgrader{
 			ReadBufferSize:  1024,
