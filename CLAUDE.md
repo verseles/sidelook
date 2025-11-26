@@ -4,13 +4,12 @@
 
 Ao concluir qualquer tarefa neste projeto, siga rigorosamente esta sequência:
 
-1. **Testes**: Execute `go test ./...` para garantir que todos os testes passam
-2. **Lint** (se disponível): Execute `make lint` para verificar qualidade do código
-3. **Build**: Execute `make build` para compilar o binário para o sistema operacional atual
-4. **Verificação manual**: Permita que o usuário teste o binário gerado antes de prosseguir
+1. Verificar se algum desses arquivos markdown necessita atualização: CHANGELOG.md, README.md, CLAUDE.md
+2. **Testes**: Execute `go test ./...` para garantir que todos os testes passam
+3. **Lint** (se disponível): Execute `make lint` para verificar qualidade do código
+4. **Build**: Execute `make build` para compilar o binário para o sistema operacional atual
 5. **Commit**: Somente após confirmação, faça o commit das alterações
-
-Esta sequência garante que o usuário sempre tenha um binário funcional e testado disponível para validação manual antes de qualquer alteração ser commitada.
+6. **Notificar**: Envie uma notificação para o usuário
 
 ## Comandos Importantes
 

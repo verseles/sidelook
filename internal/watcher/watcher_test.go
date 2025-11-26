@@ -218,6 +218,80 @@ func TestImageWatcher_DetectImageDeletion(t *testing.T) {
 	}
 }
 
+func TestImageWatcher_DetectImageRename(t *testing.T) {
+	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	// Criar diretório de destino para rename
+	dstDir, err := os.MkdirTemp("", "sidelook_dst_*")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer os.RemoveAll(dstDir)
+
+	// Criar duas imagens
+	img1 := filepath.Join(tmpDir, "img1.png")
+	if err := os.WriteFile(img1, []byte{0x89, 0x50, 0x4E, 0x47}, 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	time.Sleep(100 * time.Millisecond)
+
+	img2 := filepath.Join(tmpDir, "img2.jpg")
+	if err := os.WriteFile(img2, []byte{0xFF, 0xD8, 0xFF}, 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	w, err := New(tmpDir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer w.Stop()
+
+	// Scan inicial - img2 deve ser a mais recente
+	_, _, err = w.ScanExisting()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	deleted := make(chan string, 1)
+	w.OnImageDeleted = func(path string) {
+		deleted <- path
+	}
+
+	if err := w.Start(); err != nil {
+		t.Fatal(err)
+	}
+
+	// Dar tempo para watcher inicializar
+	time.Sleep(100 * time.Millisecond)
+
+	// Mover a imagem atual (img2) para fora do diretório (simula RENAME)
+	dstPath := filepath.Join(dstDir, "img2.jpg")
+	if err := os.Rename(img2, dstPath); err != nil {
+		t.Fatal(err)
+	}
+
+	// Aguardar notificação de deleção
+	select {
+	case path := <-deleted:
+		if path != "img1.png" {
+			t.Errorf("OnImageDeleted path = %q, want %q (próxima mais recente)", path, "img1.png")
+		}
+
+		// Verificar se a imagem atual foi atualizada
+		current := w.CurrentImageRelative()
+		if current != "img1.png" {
+			t.Errorf("CurrentImageRelative() = %q, want %q", current, "img1.png")
+		}
+	case <-time.After(5 * time.Second):
+		t.Error("Timeout aguardando detecção de rename/movimentação de imagem")
+	}
+}
+
 func TestImageWatcher_DetectLastImageDeletion(t *testing.T) {
 	tmpDir, err := os.MkdirTemp("", "sidelook_test_*")
 	if err != nil {

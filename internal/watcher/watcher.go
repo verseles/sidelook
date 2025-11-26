@@ -207,10 +207,18 @@ func (iw *ImageWatcher) loop() {
 func (iw *ImageWatcher) handleEvent(event fsnotify.Event) {
 	path := event.Name
 
-	// Tratar deleção
-	if event.Op&fsnotify.Remove != 0 {
+	// Tratar deleção (Remove ou Rename para fora do diretório)
+	if event.Op&fsnotify.Remove != 0 || event.Op&fsnotify.Rename != 0 {
 		if !IsImageFile(path) {
 			return
+		}
+
+		// Verificar se arquivo ainda existe (RENAME pode ser renomear dentro do mesmo diretório)
+		if event.Op&fsnotify.Rename != 0 {
+			if _, err := os.Stat(path); err == nil {
+				// Arquivo ainda existe, não é uma deleção
+				return
+			}
 		}
 
 		// Verificar se a imagem deletada é a atual

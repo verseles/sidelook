@@ -188,15 +188,17 @@ func GenerateHTML(initialImage string) string {
         current.classList.add('fade-out');
 
         setTimeout(() => {
+          current.remove();
+
           const newImg = document.createElement('img');
           newImg.id = 'viewer';
           newImg.src = '/image/' + imagePath + '?t=' + Date.now();
           newImg.alt = 'Imagem';
           newImg.classList.add('fade-out');
 
+          container.appendChild(newImg);
+
           newImg.onload = () => {
-            current.remove();
-            container.appendChild(newImg);
             void newImg.offsetWidth;
             newImg.classList.remove('fade-out');
           };
