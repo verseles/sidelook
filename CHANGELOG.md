@@ -8,9 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Modo slideshow com as N imagens mais recentes (`-s/--slideshow N`)
+- Configuração de intervalo entre imagens no slideshow (`-t/--time SEGUNDOS`)
 - Detecção automática de deleção/movimentação de imagem com troca para a próxima mais recente
 - Suporte a eventos RENAME e REMOVE para detectar quando imagens são deletadas ou movidas para lixeira
 - Transição suave ao trocar de imagem após deleção
+- Rastreamento automático das N imagens mais recentes quando slideshow ativado
 
 ### Fixed
 - Correção de duplicação de imagens ao receber nova imagem via WebSocket

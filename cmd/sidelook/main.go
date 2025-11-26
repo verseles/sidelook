@@ -65,7 +65,15 @@ func main() {
 
 func runServer(config *cli.Config) error {
 	// Criar watcher
-	w, err := watcher.New(config.Directory)
+	var w *watcher.ImageWatcher
+	var err error
+
+	if config.SlideshowCount > 0 {
+		w, err = watcher.NewWithSlideshowCount(config.Directory, config.SlideshowCount)
+	} else {
+		w, err = watcher.New(config.Directory)
+	}
+
 	if err != nil {
 		return fmt.Errorf("diretório inválido: %s", config.Directory)
 	}
@@ -92,7 +100,7 @@ func runServer(config *cli.Config) error {
 	defer w.Stop()
 
 	// Iniciar servidor
-	srv := server.New(w, config.Port)
+	srv := server.New(w, config.Port, config.SlideshowInterval)
 	if err := srv.Start(); err != nil {
 		return err
 	}

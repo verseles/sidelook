@@ -28,7 +28,8 @@ func (s *Server) handleIndex(w http.ResponseWriter, r *http.Request) {
 	}
 
 	initialImage := s.watcher.CurrentImageRelative()
-	html := assets.GenerateHTML(initialImage)
+	slideshowImages := s.watcher.RecentImagesRelative()
+	html := assets.GenerateHTML(initialImage, slideshowImages, s.slideshowInterval)
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.Write([]byte(html))

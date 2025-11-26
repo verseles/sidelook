@@ -43,6 +43,8 @@ type ImageWatcher struct {
 
 	mu           sync.RWMutex
 	currentImage *ImageInfo
+	recentImages []*ImageInfo // N imagens mais recentes ordenadas (mais recente primeiro)
+	maxRecent    int          // Número máximo de imagens recentes a manter
 
 	// OnNewImage é chamado quando uma nova imagem é detectada
 	OnNewImage func(path string)
@@ -55,6 +57,11 @@ type ImageWatcher struct {
 
 // New cria um novo ImageWatcher
 func New(dir string) (*ImageWatcher, error) {
+	return NewWithSlideshowCount(dir, 0)
+}
+
+// NewWithSlideshowCount cria um novo ImageWatcher com suporte a slideshow
+func NewWithSlideshowCount(dir string, slideshowCount int) (*ImageWatcher, error) {
 	// Verificar se diretório existe
 	info, err := os.Stat(dir)
 	if err != nil {
@@ -70,9 +77,11 @@ func New(dir string) (*ImageWatcher, error) {
 	}
 
 	return &ImageWatcher{
-		dir:     dir,
-		watcher: w,
-		done:    make(chan struct{}),
+		dir:          dir,
+		watcher:      w,
+		done:         make(chan struct{}),
+		maxRecent:    slideshowCount,
+		recentImages: make([]*ImageInfo, 0, slideshowCount),
 	}, nil
 }
 
@@ -83,7 +92,7 @@ func (iw *ImageWatcher) ScanExisting() (count int, mostRecent *ImageInfo, err er
 		return 0, nil, err
 	}
 
-	var latestInfo *ImageInfo
+	var allImages []*ImageInfo
 
 	for _, entry := range entries {
 		if entry.IsDir() {
@@ -102,19 +111,40 @@ func (iw *ImageWatcher) ScanExisting() (count int, mostRecent *ImageInfo, err er
 			continue
 		}
 
-		if latestInfo == nil || info.ModTime().After(latestInfo.ModTime) {
-			latestInfo = &ImageInfo{
-				Path:    path,
-				ModTime: info.ModTime(),
+		allImages = append(allImages, &ImageInfo{
+			Path:    path,
+			ModTime: info.ModTime(),
+		})
+	}
+
+	// Ordenar por ModTime (mais recente primeiro)
+	for i := 0; i < len(allImages); i++ {
+		for j := i + 1; j < len(allImages); j++ {
+			if allImages[j].ModTime.After(allImages[i].ModTime) {
+				allImages[i], allImages[j] = allImages[j], allImages[i]
 			}
 		}
 	}
 
+	// Pegar as N mais recentes
 	iw.mu.Lock()
-	iw.currentImage = latestInfo
+	if len(allImages) > 0 {
+		iw.currentImage = allImages[0]
+
+		if iw.maxRecent > 0 {
+			maxIdx := iw.maxRecent
+			if maxIdx > len(allImages) {
+				maxIdx = len(allImages)
+			}
+			iw.recentImages = allImages[:maxIdx]
+		}
+	}
 	iw.mu.Unlock()
 
-	return count, latestInfo, nil
+	if len(allImages) > 0 {
+		return count, allImages[0], nil
+	}
+	return count, nil, nil
 }
 
 // CurrentImage retorna a imagem atual
@@ -135,6 +165,34 @@ func (iw *ImageWatcher) CurrentImageRelative() string {
 		return filepath.Base(img.Path)
 	}
 	return rel
+}
+
+// RecentImages retorna as N imagens mais recentes
+func (iw *ImageWatcher) RecentImages() []*ImageInfo {
+	iw.mu.RLock()
+	defer iw.mu.RUnlock()
+
+	// Retornar cópia para evitar problemas de concorrência
+	result := make([]*ImageInfo, len(iw.recentImages))
+	copy(result, iw.recentImages)
+	return result
+}
+
+// RecentImagesRelative retorna os caminhos relativos das N imagens mais recentes
+func (iw *ImageWatcher) RecentImagesRelative() []string {
+	images := iw.RecentImages()
+	paths := make([]string, len(images))
+
+	for i, img := range images {
+		rel, err := filepath.Rel(iw.dir, img.Path)
+		if err != nil {
+			paths[i] = filepath.Base(img.Path)
+		} else {
+			paths[i] = rel
+		}
+	}
+
+	return paths
 }
 
 // findMostRecentImage procura a imagem mais recente no diretório
@@ -277,6 +335,17 @@ func (iw *ImageWatcher) handleEvent(event fsnotify.Event) {
 
 	iw.mu.Lock()
 	iw.currentImage = newImage
+
+	// Atualizar lista de imagens recentes se slideshow está ativado
+	if iw.maxRecent > 0 {
+		// Adicionar nova imagem no início
+		iw.recentImages = append([]*ImageInfo{newImage}, iw.recentImages...)
+
+		// Manter apenas maxRecent imagens
+		if len(iw.recentImages) > iw.maxRecent {
+			iw.recentImages = iw.recentImages[:iw.maxRecent]
+		}
+	}
 	iw.mu.Unlock()
 
 	// Notificar callback

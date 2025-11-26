@@ -1,13 +1,26 @@
 // internal/assets/html.go
 package assets
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // GenerateHTML gera o HTML completo da página do visualizador
-func GenerateHTML(initialImage string) string {
+func GenerateHTML(initialImage string, slideshowImages []string, slideshowInterval int) string {
 	imageDisplay := `<div id="waiting">Aguardando primeira imagem...</div>`
 	if initialImage != "" {
 		imageDisplay = fmt.Sprintf(`<img id="viewer" src="/image/%s" alt="Imagem">`, initialImage)
+	}
+
+	// Serializar imagens do slideshow para JavaScript
+	slideshowJSON := "[]"
+	if len(slideshowImages) > 0 {
+		var parts []string
+		for _, img := range slideshowImages {
+			parts = append(parts, fmt.Sprintf(`"%s"`, img))
+		}
+		slideshowJSON = "[" + strings.Join(parts, ",") + "]"
 	}
 
 	return fmt.Sprintf(`<!DOCTYPE html>
@@ -232,9 +245,40 @@ func GenerateHTML(initialImage string) string {
       }
     });
 
+    // Configuração de slideshow
+    const slideshowImages = %s;
+    const slideshowInterval = %d * 1000; // Converter para milissegundos
+    let slideshowTimer = null;
+    let currentSlideshowIndex = 0;
+
+    function startSlideshow() {
+      if (slideshowImages.length <= 1) {
+        return; // Não iniciar se houver apenas 1 ou nenhuma imagem
+      }
+
+      stopSlideshow();
+
+      slideshowTimer = setInterval(() => {
+        currentSlideshowIndex = (currentSlideshowIndex + 1) %% slideshowImages.length;
+        updateImage(slideshowImages[currentSlideshowIndex]);
+      }, slideshowInterval);
+    }
+
+    function stopSlideshow() {
+      if (slideshowTimer) {
+        clearInterval(slideshowTimer);
+        slideshowTimer = null;
+      }
+    }
+
+    // Iniciar slideshow se configurado
+    if (slideshowImages.length > 1) {
+      startSlideshow();
+    }
+
     connect();
   </script>
 </body>
 </html>
-`, imageDisplay)
+`, imageDisplay, slideshowJSON, slideshowInterval)
 }
